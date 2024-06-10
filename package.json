@@ -1,23 +1,18 @@
 {
-  "name": "mausritter",
-  "version": "1.0.0",
-  "description": "CSS compiler for the Mausritter system",
-  "scripts": {
-    "build": "gulp",
-    "compile": "gulp css",
-    "watch": "gulp",
-    "gulp": "gulp"
-  },
-  "browserslist": [
-    "last 3 versions"
-  ],
-  "author": "Martin Jencka",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
-  }
+	"name": "mausritter",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"format:check": "bun biome check",
+		"format": "bun biome check --write"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.1",
+		"vite": "^5.2.0"
+	},
+	"trustedDependencies": ["@biomejs/biome"]
 }

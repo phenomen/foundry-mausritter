@@ -1,0 +1,165 @@
+{
+	"title": "Mausritter",
+	"description": "The unofficial Mausritter system for FoundryVTT.",
+	"version": "0.5.0",
+	"esmodules": ["mausritter.js"],
+	"styles": ["styles/mausritter.css"],
+	"packs": [
+		{
+			"name": "weapons",
+			"label": "Weapons",
+			"system": "mausritter",
+			"path": "packs/weapons",
+			"type": "Item",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "armor",
+			"label": "Armor",
+			"system": "mausritter",
+			"path": "packs/armor",
+			"type": "Item",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "gear",
+			"label": "Gear",
+			"system": "mausritter",
+			"path": "packs/gear",
+			"type": "Item",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "conditions",
+			"label": "Conditions",
+			"system": "mausritter",
+			"path": "packs/conditions",
+			"type": "Item",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "spells",
+			"label": "Spells",
+			"system": "mausritter",
+			"path": "packs/spells",
+			"type": "Item",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "creatures",
+			"label": "Creatures",
+			"system": "mausritter",
+			"path": "packs/creatures",
+			"type": "Actor",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "NONE",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "tables",
+			"label": "Tables",
+			"system": "mausritter",
+			"path": "packs/tables",
+			"type": "RollTable",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "mausritter-macros",
+			"label": "Mausritter Macros",
+			"system": "mausritter",
+			"path": "packs/mausritter-macros",
+			"type": "Macro",
+			"flags": {},
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		}
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json",
+			"flags": {}
+		},
+		{
+			"lang": "fr",
+			"name": "Français",
+			"path": "lang/fr.json",
+			"flags": {}
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português (Brasil)",
+			"path": "lang/pt-br.json",
+			"flags": {}
+		},
+		{
+			"lang": "es",
+			"name": "Español (Spanish)",
+			"path": "lang/es.json",
+			"flags": {}
+		},
+		{
+			"lang": "pl",
+			"name": "Polski (Polish)",
+			"path": "lang/pl.json",
+			"flags": {}
+		},
+		{
+			"lang": "de",
+			"name": "Deutsch (German)",
+			"path": "lang/de.json",
+			"flags": {}
+		}
+	],
+	"gridDistance": 1,
+	"gridUnits": "in",
+	"primaryTokenAttribute": "health",
+	"url": "https://github.com/phenomen/foundry-mausritter",
+	"manifest": "",
+	"download": "",
+	"license": "LICENSE.txt",
+	"id": "mausritter",
+	"authors": [
+		{
+			"name": "Futilrevenge",
+			"flags": {}
+		},
+		{
+			"name": "Phenomen",
+			"flags": {}
+		}
+	],
+	"compatibility": {
+		"minimum": "11",
+		"verified": "12"
+	}
+}
