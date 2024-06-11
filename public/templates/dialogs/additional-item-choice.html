@@ -1,6 +1,6 @@
 <div>
-    <p>Because your highest attribute is 9 or less you take additional starting item:</p>
-    <label for="items">Additional item:</label>
+    <p>{{localize "Maus.CC.LowAttributeExtraItem"}}:</p>
+    <label for="items">{{localize "Maus.CC.AdditionalItem"}}:</label>
     <select name="items" id="items">
         {{#each items as |item|}}
         <option value="{{item.id}}">{{item.name}}</option>

@@ -1,7 +1,7 @@
 {
 	"title": "Mausritter",
 	"description": "The unofficial Mausritter system for FoundryVTT.",
-	"version": "0.5.0",
+	"version": "0.5.5",
 	"esmodules": ["mausritter.js"],
 	"styles": ["styles/mausritter.css"],
 	"packs": [

@@ -2,12 +2,12 @@ export async function showCreateCharacterDialog(callback) {
 	const template = "systems/mausritter/templates/dialogs/create-character.html";
 	const html = await renderTemplate(template);
 	const d = new Dialog({
-		title: "What do you want to create?",
+		title: game.i18n.localize("Maus.CC.WhatToCreate"),
 		content: html,
 		buttons: {
 			roll: {
 				icon: '<i class="fas fa-check"></i>',
-				label: "ok",
+				label: game.i18n.localize("Maus.OK"),
 				callback: (html) => {
 					const formElement = html[0].querySelector("fieldset");
 					const formData = new FormDataExtended(formElement);

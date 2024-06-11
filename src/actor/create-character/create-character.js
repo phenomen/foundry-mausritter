@@ -114,7 +114,9 @@ async function createStats(background, basicStats, details) {
 	const strength = basicStats ? attrRoll() : 0;
 	const will = basicStats ? attrRoll() : 0;
 
-	const backgroundName = background ? background.name : "";
+	const backgroundName = background
+		? game.i18n.localize(`Maus.Background.${background.name}`)
+		: "";
 	const pips = background ? background.pips : 0;
 	const hp = background ? background.hp : 0;
 
