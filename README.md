@@ -1,3 +1,7 @@
+## THIS IS AN UPDATED FORK OF THE ORIGINAL FVTT MAUSRITTER SYSTEM
+
+**Use this Manifest URL to install:** https://github.com/phenomen/foundry-mausritter/releases/download/latest/system.json
+
 # Mausritter RPG for Foundry VTT
 #### This is an unofficial version of the Mausritter RPG system, which is the property of Isaac Williams & Losing Games.
 Mausritter can be purchased here: https://mausritter.com/
