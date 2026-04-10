@@ -1,3 +1,5 @@
+const renderTemplate = foundry.applications.handlebars.renderTemplate;
+
 export async function showAdditionalItemsChoiceDialog(items, callback) {
 	const template =
 		"systems/mausritter/templates/dialogs/additional-item-choice.html";

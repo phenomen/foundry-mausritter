@@ -8,8 +8,8 @@ export class MausritterItem extends Item {
 	 */
 	prepareData() {
 		super.prepareData();
-		const actorData = this.actor ? this.actor.system : {};
-		const data = this.system;
+		const _actorData = this.actor ? this.actor.system : {};
+		const _data = this.system;
 	}
 
 	static chatListeners(html) {

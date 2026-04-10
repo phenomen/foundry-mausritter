@@ -11,8 +11,10 @@
 		"format": "bun biome check --write"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.8.1",
-		"vite": "^5.2.13"
+		"@biomejs/biome": "^2.4.11",
+		"vite": "^8.0.8"
 	},
-	"trustedDependencies": ["@biomejs/biome"]
+	"trustedDependencies": [
+		"@biomejs/biome"
+	]
 }

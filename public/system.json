@@ -1,7 +1,7 @@
 {
 	"title": "Mausritter",
 	"description": "The unofficial Mausritter system for FoundryVTT.",
-	"version": "0.5.5",
+	"version": "0.6.0",
 	"esmodules": ["mausritter.js"],
 	"styles": ["styles/mausritter.css"],
 	"packs": [
@@ -140,8 +140,10 @@
 			"flags": {}
 		}
 	],
-	"gridDistance": 1,
-	"gridUnits": "in",
+	"grid": {
+		"distance": 1,
+		"units": "in"
+	},
 	"primaryTokenAttribute": "health",
 	"url": "https://github.com/phenomen/foundry-mausritter",
 	"manifest": "https://github.com/phenomen/foundry-mausritter/releases/download/latest/system.json",
@@ -159,7 +161,8 @@
 		}
 	],
 	"compatibility": {
-		"minimum": "11",
-		"verified": "12"
+		"minimum": "13",
+		"verified": "13",
+		"maximum": "14"
 	}
 }

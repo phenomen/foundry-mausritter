@@ -56,7 +56,7 @@ export async function createCharacter(options, additionalWeaponsItems) {
 
 	await characterActor.sheet.render(true);
 
-	const highestAttrValue = getHighestAttrValue(characterStats.data.stats);
+	const highestAttrValue = getHighestAttrValue(characterActor.system.stats);
 	if (
 		highestAttrValue <= TAKE_BOTH_ADDITIONAL_ITEMS &&
 		options.items &&
@@ -110,9 +110,9 @@ async function getBackgroundItems(background) {
 }
 
 async function createStats(background, basicStats, details) {
-	const dexterity = basicStats ? attrRoll() : 0;
-	const strength = basicStats ? attrRoll() : 0;
-	const will = basicStats ? attrRoll() : 0;
+	const dexterity = basicStats ? await attrRoll() : 0;
+	const strength = basicStats ? await attrRoll() : 0;
+	const will = basicStats ? await attrRoll() : 0;
 
 	const backgroundName = background
 		? game.i18n.localize(`Maus.Background.${background.name}`)
@@ -135,7 +135,7 @@ async function createStats(background, basicStats, details) {
 	return {
 		name: name,
 		type: "character",
-		data: {
+		system: {
 			stats: {
 				dexterity: {
 					max: dexterity,

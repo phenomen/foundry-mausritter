@@ -1,15 +1,16 @@
-import { MausritterActorSheet } from "./actor/actor-sheet.js";
 // Import Modules
 import { MausritterActor } from "./actor/actor.js";
+import { MausritterActorSheet } from "./actor/actor-sheet.js";
+import { autoCreateCharacter } from "./actor/create-character/create-character.js";
 import { MausritterCreatureSheet } from "./actor/creature-sheet.js";
 import { MausritterHirelingSheet } from "./actor/hireling-sheet.js";
 import { MausritterStorageSheet } from "./actor/storage-sheet.js";
-
-import { MausritterItemSheet } from "./item/item-sheet.js";
 import { MausritterItem } from "./item/item.js";
-
-import { autoCreateCharacter } from "./actor/create-character/create-character.js";
+import { MausritterItemSheet } from "./item/item-sheet.js";
 import { registerSettings } from "./settings.js";
+
+const Actors = foundry.documents.collections.Actors;
+const Items = foundry.documents.collections.Items;
 
 Hooks.once("init", async () => {
 	game.mausritter = {
@@ -55,7 +56,7 @@ Hooks.once("init", async () => {
 	};
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
+	Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
 
 	Actors.registerSheet("mausritter", MausritterActorSheet, {
 		types: ["character"],
@@ -74,7 +75,7 @@ Hooks.once("init", async () => {
 		makeDefault: false,
 	});
 
-	Items.unregisterSheet("core", ItemSheet);
+	Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
 	Items.registerSheet("mausritter", MausritterItemSheet, { makeDefault: true });
 
 	Handlebars.registerHelper("toLowerCase", (str) => str.toLowerCase());
@@ -88,7 +89,7 @@ Hooks.once("init", async () => {
 /**
  * Set default values for new actors' tokens
  */
-Hooks.on("preCreateActor", (document, createData, options, userId) => {
+Hooks.on("preCreateActor", (_document, createData, _options, _userId) => {
 	let disposition = CONST.TOKEN_DISPOSITIONS.NEUTRAL;
 
 	if (createData.type === "creature") {
@@ -96,7 +97,7 @@ Hooks.on("preCreateActor", (document, createData, options, userId) => {
 	}
 
 	// Set wounds, advantage, and display name visibility
-	mergeObject(createData, {
+	foundry.utils.mergeObject(createData, {
 		"token.bar1": { attribute: "health" }, // Default Bar 1 to Health
 		"token.bar2": { stat: "strength" }, // Default Bar 2 to Insanity
 		"token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER, // Default display name to be on owner hover
@@ -120,7 +121,7 @@ Hooks.on("preCreateActor", (document, createData, options, userId) => {
 
 Hooks.once("ready", async () => {
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-	Hooks.on("hotbarDrop", (bar, data, slot) => {
+	Hooks.on("hotbarDrop", (_bar, data, slot) => {
 		if (data.type === "Item") {
 			createMausritterMacro(data, slot);
 			return false;
@@ -147,7 +148,7 @@ async function createMausritterMacro(dropData, slot) {
 		return null;
 	}
 
-	foundry.utils.mergeObject(macroData, {
+	foundry.utils.foundry.utils.mergeObject(macroData, {
 		name: itemData.name,
 		img: itemData.img,
 		command: `game.mausritter.rollItemMacro("${itemData.name}")`,

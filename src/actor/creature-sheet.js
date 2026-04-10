@@ -1,11 +1,13 @@
+const ActorSheet = foundry.appv1.sheets.ActorSheet;
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
+ * @extends {foundry.appv1.sheets.ActorSheet}
  */
 export class MausritterCreatureSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(ActorSheet.defaultOptions, {
+		return foundry.utils.mergeObject(ActorSheet.defaultOptions, {
 			classes: ["mausritter", "sheet", "actor", "creature"],
 			template: "systems/mausritter/templates/actor/creature-sheet.html",
 			width: 680,
@@ -27,7 +29,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		const data = super.getData();
 		data.dtypes = ["String", "Number", "Boolean"];
 
-		const superData = data.data.system;
+		const _superData = data.data.system;
 
 		// Prepare items.
 		if (this.actor.type === "creature") {
@@ -169,7 +171,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		// Update Inventory Item
 		html.find(".item-equip").click((ev) => {
 			const li = $(ev.currentTarget).parents(".item");
-			const item = duplicate(
+			const item = foundry.utils.duplicate(
 				this.actor.getEmbeddedDocument("Item", li.dataset.itemId),
 			);
 
@@ -233,7 +235,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		// Rotate Inventory Item
 		html.find(".item-rotate").click((ev) => {
 			const li = ev.currentTarget.closest(".item");
-			const item = duplicate(
+			const item = foundry.utils.duplicate(
 				this.actor.getEmbeddedDocument("Item", li.dataset.itemId),
 			);
 			if (item.system.sheet.rotation === -90) item.system.sheet.rotation = 0;
@@ -260,7 +262,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		// If we have an item input being adjusted from the character sheet.
 		html.on("change", ".item-input", (ev) => {
 			const li = ev.currentTarget.closest(".item");
-			const item = duplicate(
+			const item = foundry.utils.duplicate(
 				this.actor.getEmbeddedDocument("Item", li.dataset.itemId),
 			);
 			const input = $(ev.currentTarget);
@@ -272,7 +274,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 
 		html.on("mousedown", ".pip-button", (ev) => {
 			const li = ev.currentTarget.closest(".item");
-			const item = duplicate(
+			const item = foundry.utils.duplicate(
 				this.actor.getEmbeddedDocument("Item", li.dataset.itemId),
 			);
 
@@ -293,7 +295,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 
 		html.on("mousedown", ".damage-swap", (ev) => {
 			const li = ev.currentTarget.closest(".item");
-			const item = duplicate(
+			const item = foundry.utils.duplicate(
 				this.actor.getEmbeddedDocument("Item", li.dataset.itemId),
 			);
 
@@ -309,13 +311,13 @@ export class MausritterCreatureSheet extends ActorSheet {
 		if (this.actor.isOwner) {
 			const handler = (ev) => this._onDragItemStart(ev);
 			//let dragEnd = ev => this._onDragOver(ev);
-			html.find("li.dropitem").each((i, li) => {
+			html.find("li.dropitem").each((_i, li) => {
 				if (li.classList.contains("inventory-header")) return;
 				li.setAttribute("draggable", true);
 				li.addEventListener("dragstart", handler, false);
 			});
 
-			html.find("div.dropitem").each((i, div) => {
+			html.find("div.dropitem").each((_i, div) => {
 				if (div.classList.contains("inventory-header")) return;
 				div.setAttribute("draggable", true);
 				div.addEventListener("dragstart", handler, false);
@@ -323,7 +325,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 
 			// html.find('div.dragItems').each((i, dragItem) => {
 
-			//     const item = duplicate(this.actor.getEmbeddedDocument("Item", dragitem.systemset.itemId))
+			//     const item = foundry.utils.duplicate(this.actor.getEmbeddedDocument("Item", dragitem.systemset.itemId))
 			//     // let dragItem = document.querySelector("#" + container.dataset.itemId);
 			//     var curIndex = 1; //The current zIndex
 
@@ -369,7 +371,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		// Get the type of item to create.
 		//const type = header.dataset.type;
 		// Grab any data associated with this control.
-		const data = duplicate(header.dataset);
+		const data = foundry.utils.duplicate(header.dataset);
 		// Initialize a default name.
 		const name = `New ${type.capitalize()}`;
 		// Prepare the item object.
@@ -396,7 +398,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		// Get the type of item to create.
 		const type = header.dataset.type;
 		// Grab any data associated with this control.
-		const data = duplicate(header.dataset);
+		const data = foundry.utils.duplicate(header.dataset);
 		// Initialize a default name.
 		const name = "New Skill";
 		// Prepare the item object.
@@ -434,9 +436,9 @@ export class MausritterCreatureSheet extends ActorSheet {
 		}
 	}
 
-	async _updateObject(event, formData) {
+	async _updateObject(_event, formData) {
 		const actor = this.object;
-		const updateData = expandObject(formData);
+		const updateData = foundry.utils.expandObject(formData);
 
 		await actor.update(updateData, {
 			diff: false,
@@ -449,7 +451,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 
 		if (!itemId) return;
 
-		const clickedItem = duplicate(
+		const clickedItem = foundry.utils.duplicate(
 			this.actor.getEmbeddedDocument("Item", itemId),
 		);
 
@@ -460,7 +462,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 		const x = event.pageX - it.offset().left - width / 2;
 		const y = event.pageY - it.offset().top - height / 2;
 
-		const i = $(`#${itemId}`);
+		const _i = $(`#${itemId}`);
 
 		// i.fadeOut(150);
 
@@ -491,7 +493,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 	}
 
 	//Call this when an item is dropped.
-	_onDragOver(event) {
+	_onDragOver(_event) {
 		// let itemId = event.currentTarget.getAttribute("data-item-id");
 		// if(!itemId)
 		//   return;
@@ -514,7 +516,7 @@ export class MausritterCreatureSheet extends ActorSheet {
 	async _onDropItem(event, data) {
 		if (!this.actor.isOwner) return false;
 		const item = await Item.fromDropData(data);
-		const itemData = duplicate(item);
+		const itemData = foundry.utils.duplicate(item);
 
 		// Handle item sorting within the same Actor
 		const actor = this.actor;
@@ -549,7 +551,9 @@ export class MausritterCreatureSheet extends ActorSheet {
 			data.actorId === actor.id ||
 			(actor.isToken && data.tokenId === actor.token.id);
 		if (sameActor && !event.ctrlKey) {
-			const i = duplicate(actor.getEmbeddedDocument("Item", data.itemId));
+			const i = foundry.utils.duplicate(
+				actor.getEmbeddedDocument("Item", data.itemId),
+			);
 			i.system.sheet = {
 				currentX: x - data.offset.x,
 				currentY: y - data.offset.y,

@@ -1,3 +1,5 @@
+const renderTemplate = foundry.applications.handlebars.renderTemplate;
+
 export async function showCreateCharacterDialog(callback) {
 	const template = "systems/mausritter/templates/dialogs/create-character.html";
 	const html = await renderTemplate(template);
@@ -10,7 +12,9 @@ export async function showCreateCharacterDialog(callback) {
 				label: game.i18n.localize("Maus.OK"),
 				callback: (html) => {
 					const formElement = html[0].querySelector("fieldset");
-					const formData = new FormDataExtended(formElement);
+					const formData = new foundry.applications.ux.FormDataExtended(
+						formElement,
+					);
 					const options = formData.object;
 					callback(options);
 				},

@@ -162,8 +162,6 @@
 
 .mausritter .char-header {
 	-webkit-box-flex: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
@@ -243,6 +241,14 @@
 	-webkit-box-flex: 0;
 	-ms-flex: 0;
 	flex: 0;
+}
+
+.mausritter .editor {
+	height: 100%;
+}
+
+.mausritter .creaturedescription .editor {
+	overflow: auto;
 }
 
 .mausritter .sheet-body,
@@ -367,7 +373,6 @@
 }
 
 .mausritter .tab-select {
-	font-size: medium;
 	font-weight: bold;
 	font-family: var(--font-medieval);
 	font-size: 1.5em;
@@ -680,7 +685,7 @@
 
 .mausritter .savetext {
 	display: block;
-	margin-bottom: .2em;
+	margin-bottom: 0.2em;
 	width: 100%;
 	color: white;
 	font-family: var(--font-ui);
@@ -794,10 +799,6 @@
 	overflow-y: auto;
 }
 
-.mausritter .creaturedescription .editor {
-	overflow: auto;
-}
-
 .mausritter .creature-ability-container {
 	padding: 4px;
 	margin-left: 2px;
@@ -823,13 +824,9 @@
 	min-height: 100%;
 }
 
-.mausritter .editor {
-	height: 100%;
-}
-
 .noborder {
-	border: 0 !important;
-	background: 0 !important;
+	border: 0;
+	background: 0;
 }
 
 .mausritter .header {
@@ -1128,7 +1125,6 @@
 .mausritter .item-card {
 	z-index: 9;
 	background-color: white;
-	border: 1px solid #d3d3d3;
 	text-align: center;
 	touch-action: none;
 	user-select: none;

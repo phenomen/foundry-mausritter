@@ -1,3 +1,5 @@
+const renderTemplate = foundry.applications.handlebars.renderTemplate;
+
 export async function showWeaponChoiceDialog(callback) {
 	const template = "systems/mausritter/templates/dialogs/weapon-choice.html";
 	const html = await renderTemplate(template);

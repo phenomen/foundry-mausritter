@@ -1,3 +1,5 @@
+const renderTemplate = foundry.applications.handlebars.renderTemplate;
+
 export async function showAdditionalItemsInfoDialog(items) {
 	const template =
 		"systems/mausritter/templates/dialogs/additional-item-info.html";
@@ -9,7 +11,7 @@ export async function showAdditionalItemsInfoDialog(items) {
 			ok: {
 				icon: '<i class="fas fa-check"></i>',
 				label: game.i18n.localize("Maus.OK"),
-				callback: (html) => {},
+				callback: (_html) => {},
 			},
 		},
 		default: "ok",

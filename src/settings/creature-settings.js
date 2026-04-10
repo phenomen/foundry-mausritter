@@ -1,3 +1,5 @@
+const FormApplication = foundry.appv1.api.FormApplication;
+
 export class DLCreatureSettings extends FormApplication {
 	static get defaultOptions() {
 		const options = FormApplication.defaultOptions;
@@ -40,7 +42,7 @@ export class DLCreatureSettings extends FormApplication {
 			.find(`input[type=checkbox][id="data.stats.combat.enabled"]`)
 			.click((ev) => {
 				if (ev.currentTarget.checked) {
-					const combat = html
+					const _combat = html
 						.find(`input[type=checkbox][id="data.stats.combat.enabled"]`)
 						.prop("checked", true);
 				}
@@ -53,7 +55,7 @@ export class DLCreatureSettings extends FormApplication {
 			.find(`input[type=checkbox][id="data.stats.instinct.enabled"]`)
 			.click((ev) => {
 				if (ev.currentTarget.checked) {
-					const instinct = html
+					const _instinct = html
 						.find(`input[type=checkbox][id="data.stats.instinct.enabled"]`)
 						.prop("checked", true);
 				}
@@ -66,7 +68,7 @@ export class DLCreatureSettings extends FormApplication {
 			.find(`input[type=checkbox][id="data.stats.loyalty.enabled"]`)
 			.click((ev) => {
 				if (ev.currentTarget.checked) {
-					const loyalty = html
+					const _loyalty = html
 						.find(`input[type=checkbox][id="data.stats.loyalty.enabled"]`)
 						.prop("checked", true);
 				}
@@ -79,7 +81,7 @@ export class DLCreatureSettings extends FormApplication {
 			.find(`input[type=checkbox][id="data.stats.speed.enabled"]`)
 			.click((ev) => {
 				if (ev.currentTarget.checked) {
-					const speed = html
+					const _speed = html
 						.find(`input[type=checkbox][id="data.stats.speed.enabled"]`)
 						.prop("checked", true);
 				}
@@ -92,7 +94,7 @@ export class DLCreatureSettings extends FormApplication {
 			.find(`input[type=checkbox][id="data.stats.armor.enabled"]`)
 			.click((ev) => {
 				if (ev.currentTarget.checked) {
-					const armor = html
+					const _armor = html
 						.find(`input[type=checkbox][id="data.stats.armor.enabled"]`)
 						.prop("checked", true);
 				}
@@ -105,7 +107,7 @@ export class DLCreatureSettings extends FormApplication {
 			.find(`input[type=checkbox][id="data.stats.sanity.enabled"]`)
 			.click((ev) => {
 				if (ev.currentTarget.checked) {
-					const sanity = html
+					const _sanity = html
 						.find(`input[type=checkbox][id="data.stats.sanity.enabled"]`)
 						.prop("checked", true);
 				}
@@ -122,7 +124,7 @@ export class DLCreatureSettings extends FormApplication {
 	 * @param formData {Object}   The object of validated form data with which to update the object
 	 * @private
 	 */
-	async _updateObject(event, formData) {
+	async _updateObject(_event, formData) {
 		console.log("Updating Object");
 
 		// Loyalty
