@@ -91,6 +91,12 @@
 		"RollEnhanced": "Enhanced",
 		"RollImpaired": "Impaired",
 		"RollPowerDesc": "How much Power?",
+		"Settings": {
+			"LimitSpellPowerToRemainingUses": "Limit spell power to remaining uses",
+			"LimitSpellPowerToRemainingUsesHint": "Cap spell power at its remaining unmarked uses. With no uses left, casting is blocked even if the exhaustion setting is off. Disable to cap power at total maximum usage instead.",
+			"BlockExhaustedSpells": "Block casting exhausted spells",
+			"BlockExhaustedSpellsHint": "Prevent casting when all usage marks are filled. Clear at least one mark to cast again. Disabling this does not bypass the remaining-uses power limit."
+		},
 		"RollSum": "Sum",
 		"RollDice": "Dice",
 		"RollSumKeyword": "[SUM]",

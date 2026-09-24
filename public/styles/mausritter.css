@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Germania+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-:root {
+.mausritter {
 	--font-ui: "Montserrat", "Arial", "Helvetica", sans-serif;
 	--font-sans: "Roboto", "Arial", "Helvetica", sans-serif;
 	--font-serif: "Garamond", "Georgia", "Times", serif;
 	--font-medieval: "Germania One", "Garamond", "Georgia", "Times", serif;
 }
 
-.window-app {
+.mausritter.application {
 	font-family: var(--font-sans);
 }
 
-.window-app .window-content {
+.mausritter.application .window-content {
 	background: #fff;
 }
 
@@ -1175,8 +1175,8 @@
 	color: grey;
 	text-align: right;
 	pointer-events: auto;
-	bottom: 3px;
-	right: 4px;
+	bottom: 1px;
+	right: 1px;
 	position: absolute;
 }
 
@@ -1206,6 +1206,15 @@
 	position: absolute;
 	pointer-events: none;
 	font-family: var(--font-sans);
+	text-shadow:
+                -2px -2px 0 white,
+                2px -2px 0 white,
+                -2px 2px 0 white,
+                2px 2px 0 white,
+                -3px 0px 0 white,
+                3px 0px 0 white,
+                0px -3px 0 white,
+                0px 3px 0 white;
 }
 
 .mausritter .item-card-clear {
@@ -1218,6 +1227,15 @@
 	position: absolute;
 	pointer-events: none;
 	font-family: var(--font-sans);
+	text-shadow:
+                -2px -2px 0 white,
+                2px -2px 0 white,
+                -2px 2px 0 white,
+                2px 2px 0 white,
+                -3px 0px 0 white,
+                3px 0px 0 white,
+                0px -3px 0 white,
+                0px 3px 0 white;
 }
 
 .mausritter .item-card-clear-text {
@@ -1228,6 +1246,15 @@
 	position: absolute;
 	pointer-events: none;
 	font-size: 0.9em;
+	text-shadow:
+                -2px -2px 0 white,
+                2px -2px 0 white,
+                -2px 2px 0 white,
+                2px 2px 0 white,
+                -3px 0px 0 white,
+                3px 0px 0 white,
+                0px -3px 0 white,
+                0px 3px 0 white;
 }
 
 .mausritter .item-card-damage {
@@ -1344,3 +1371,12 @@
 	font-size: 1.5em;
 	line-height: 28px;
 }
+
+/* ApplicationV2 owns the outer form; the template supplies its content. */
+.mausritter.application { color: #161616; --color-text-primary: #161616; --color-text-secondary: #444; }
+.mausritter.application .window-content { display: block; padding: 8px; overflow: auto; }
+.mausritter.application [data-application-part="body"] { height: 100%; }
+.mausritter.application .sheet-body { min-height: 150px; }
+.mausritter.application prose-mirror { min-height: 120px; }
+.mausritter.application [data-action][role="button"] { cursor: pointer; }
+.mausritter.application [data-action]:focus-visible { outline: 2px solid #704214; outline-offset: 2px; }

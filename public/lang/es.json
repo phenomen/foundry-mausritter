@@ -1,4 +1,8 @@
 {
+	"Maus.Settings.LimitSpellPowerToRemainingUses": "Limitar la potencia de hechizos a los usos restantes",
+	"Maus.Settings.LimitSpellPowerToRemainingUsesHint": "Limita la potencia a los usos sin marcar. Sin usos restantes, no se puede lanzar el hechizo aunque el bloqueo por agotamiento esté desactivado. Desactiva esta opción para usar el máximo total como límite.",
+	"Maus.Settings.BlockExhaustedSpells": "Impedir lanzar hechizos agotados",
+	"Maus.Settings.BlockExhaustedSpellsHint": "Impide lanzar un hechizo cuando todos sus usos están marcados. Borra al menos una marca para volver a lanzarlo. Desactivar esta opción no anula el límite de potencia por usos restantes.",
 	"Maus.ActorName": "Nombre",
 	"Maus.ActorBackground": "Transfondo",
 	"Maus.ActorWants": "Quieren",

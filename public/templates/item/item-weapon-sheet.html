@@ -1,6 +1,6 @@
-<form class="{{cssClass}}" autocomplete="off">
+<div class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header-maus">
-        <img class="item-img" src="{{img}}" data-edit="img" title="{{name}}" />
+        <img class="item-img" src="{{img}}" data-action="editImage" data-edit="img" title="{{name}}" />
         <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name" class="item-text item-sheet-header"/></h1>
 
@@ -48,7 +48,7 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs item" data-group="primary">
-        <a class="item" data-tab="description">{{localize "Maus.ItemDescription"}}</a>
+        <a data-action="tab" data-group="primary" role="tab" tabindex="0" class="item" data-tab="description">{{localize "Maus.ItemDescription"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -56,7 +56,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor system.description target="system.description" button=true owner=owner editable=true}}
+            <prose-mirror name="system.description" value="{{system.description}}" data-document-uuid="{{document.uuid}}" toggled {{#unless editable}}disabled{{/unless}}>{{{enriched.description}}}</prose-mirror>
         </div>
 
         {{!-- Attributes Tab --}}
@@ -64,4 +64,4 @@
             {{!-- As you add new fields, add them in here! --}}
         </div>
     </section>
-</form>
+</div>
